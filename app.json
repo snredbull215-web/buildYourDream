@@ -7,7 +7,7 @@
     "pages/settings/index"
   ],
   "window": {
-    "navigationBarTitleText": "轻记账",
+    "navigationBarTitleText": "聚宝记账",
     "navigationBarBackgroundColor": "#0f766e",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f6f7f9"
