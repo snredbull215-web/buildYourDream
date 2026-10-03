@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/dashboard/index",
+    "pages/add/index",
+    "pages/records/index",
+    "pages/stats/index",
+    "pages/settings/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "轻记账",
+    "navigationBarBackgroundColor": "#0f766e",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f7f9"
+  },
+  "tabBar": {
+    "color": "#6b7280",
+    "selectedColor": "#0f766e",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/dashboard/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/add/index",
+        "text": "记一笔"
+      },
+      {
+        "pagePath": "pages/records/index",
+        "text": "明细"
+      },
+      {
+        "pagePath": "pages/stats/index",
+        "text": "统计"
+      },
+      {
+        "pagePath": "pages/settings/index",
+        "text": "设置"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

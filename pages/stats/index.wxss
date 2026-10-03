@@ -1,0 +1,70 @@
+.month {
+  margin-top: 8rpx;
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18rpx;
+  margin-top: 34rpx;
+}
+
+.metric {
+  margin-top: 8rpx;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.budget-row {
+  display: flex;
+  align-items: center;
+  margin-top: 26rpx;
+}
+
+.budget-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 132rpx;
+  height: 132rpx;
+  margin-right: 28rpx;
+  border: 14rpx solid #0f766e;
+  border-radius: 66rpx;
+}
+
+.budget-percent {
+  font-weight: 800;
+}
+
+.budget-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-row {
+  margin-top: 28rpx;
+}
+
+.bar {
+  height: 16rpx;
+  margin-top: 12rpx;
+  overflow: hidden;
+  border-radius: 8rpx;
+  background: #fee2e2;
+}
+
+.bar.income {
+  background: #dcfce7;
+}
+
+.bar-inner {
+  height: 100%;
+  border-radius: 8rpx;
+  background: #dc2626;
+}
+
+.bar-inner.income {
+  background: #047857;
+}

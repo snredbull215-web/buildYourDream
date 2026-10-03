@@ -1,0 +1,99 @@
+page {
+  min-height: 100%;
+  background: #f6f7f9;
+  color: #172033;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 28rpx;
+}
+
+view,
+text,
+button,
+input,
+textarea,
+picker {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 28rpx;
+  padding-bottom: 48rpx;
+}
+
+.section {
+  margin-top: 24rpx;
+}
+
+.card {
+  background: #fff;
+  border: 1rpx solid #e6e9ef;
+  border-radius: 8rpx;
+  padding: 28rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+.amount-income {
+  color: #047857;
+}
+
+.amount-expense {
+  color: #dc2626;
+}
+
+.primary-button {
+  height: 88rpx;
+  border-radius: 8rpx;
+  background: #0f766e;
+  color: #fff;
+  font-weight: 700;
+  line-height: 88rpx;
+}
+
+.secondary-button {
+  height: 80rpx;
+  border: 1rpx solid #cbd5e1;
+  border-radius: 8rpx;
+  background: #fff;
+  color: #172033;
+  line-height: 80rpx;
+}
+
+.danger-button {
+  height: 80rpx;
+  border-radius: 8rpx;
+  background: #dc2626;
+  color: #fff;
+  line-height: 80rpx;
+}
+
+.empty {
+  padding: 72rpx 24rpx;
+  color: #6b7280;
+  text-align: center;
+}

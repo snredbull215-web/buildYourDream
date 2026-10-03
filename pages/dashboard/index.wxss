@@ -1,0 +1,100 @@
+.hero {
+  background: #0f766e;
+  color: #fff;
+  border: 0;
+}
+
+.hero .muted,
+.hero .subtitle {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.hero-balance {
+  margin-top: 8rpx;
+  font-size: 58rpx;
+  font-weight: 800;
+}
+
+.add-shortcut {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 42rpx;
+  background: #fff;
+  color: #0f766e;
+  font-size: 48rpx;
+  line-height: 78rpx;
+  padding: 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  margin-top: 34rpx;
+}
+
+.summary-value {
+  margin-top: 8rpx;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.hero .amount-income,
+.hero .amount-expense {
+  color: #fff;
+}
+
+.budget-track,
+.bar {
+  height: 14rpx;
+  overflow: hidden;
+  border-radius: 7rpx;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.budget-track {
+  margin-top: 34rpx;
+}
+
+.budget-progress {
+  height: 100%;
+  border-radius: 7rpx;
+  background: #facc15;
+}
+
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 104rpx;
+  border-bottom: 1rpx solid #eef1f5;
+}
+
+.record:last-child {
+  border-bottom: 0;
+}
+
+.record-title {
+  font-weight: 700;
+}
+
+.link {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.category-line {
+  margin-top: 26rpx;
+}
+
+.bar {
+  margin-top: 12rpx;
+  background: #e5e7eb;
+}
+
+.bar-inner {
+  height: 100%;
+  border-radius: 7rpx;
+  background: #0f766e;
+}

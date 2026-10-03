@@ -1,0 +1,46 @@
+<view class="page">
+  <view class="card filter-card">
+    <picker mode="date" fields="month" value="{{monthKey}}" bindchange="onMonthChange">
+      <view class="filter-item">
+        <text class="muted">月份</text>
+        <text>{{monthKey}}</text>
+      </view>
+    </picker>
+    <view class="filter-tabs">
+      <view class="tab {{typeFilter === 'all' ? 'active' : ''}}" data-type="all" bindtap="changeTypeFilter">全部</view>
+      <view class="tab {{typeFilter === 'expense' ? 'active' : ''}}" data-type="expense" bindtap="changeTypeFilter">支出</view>
+      <view class="tab {{typeFilter === 'income' ? 'active' : ''}}" data-type="income" bindtap="changeTypeFilter">收入</view>
+    </view>
+  </view>
+
+  <view class="section card">
+    <view class="between">
+      <view>
+        <view class="muted">筛选结果</view>
+        <view class="total">¥{{totalText}}</view>
+      </view>
+      <view class="muted">{{records.length}} 笔</view>
+    </view>
+  </view>
+
+  <view class="section card">
+    <block wx:if="{{records.length}}">
+      <view class="record" wx:for="{{records}}" wx:key="id">
+        <view class="record-main">
+          <view class="record-icon {{item.type}}">{{item.categoryShort}}</view>
+          <view>
+            <view class="record-title">{{item.category}}</view>
+            <view class="subtitle">{{item.date}} {{item.note}}</view>
+          </view>
+        </view>
+        <view class="record-side">
+          <view class="{{item.type === 'income' ? 'amount-income' : 'amount-expense'}}">
+            {{item.type === 'income' ? '+' : '-'}}¥{{item.amountText}}
+          </view>
+          <view class="delete" data-id="{{item.id}}" bindtap="confirmDelete">删除</view>
+        </view>
+      </view>
+    </block>
+    <view wx:else class="empty">当前筛选下没有记录</view>
+  </view>
+</view>

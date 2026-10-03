@@ -1,0 +1,42 @@
+.field {
+  padding: 28rpx 0;
+}
+
+.label {
+  color: #6b7280;
+  font-size: 24rpx;
+  margin-bottom: 14rpx;
+}
+
+.budget-input {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 22rpx;
+  border: 1rpx solid #d7dce4;
+  border-radius: 8rpx;
+  background: #fff;
+  font-size: 32rpx;
+}
+
+.budget-input input {
+  flex: 1;
+  height: 78rpx;
+  margin-left: 12rpx;
+  font-size: 32rpx;
+}
+
+.action {
+  margin-top: 24rpx;
+}
+
+.scope-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #eef1f5;
+}
+
+.scope-row:last-child {
+  border-bottom: 0;
+}

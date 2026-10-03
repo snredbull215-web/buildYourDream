@@ -1,0 +1,72 @@
+.type-switch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+  padding: 8rpx;
+  border-radius: 8rpx;
+  background: #f1f5f9;
+}
+
+.type-option {
+  height: 74rpx;
+  border-radius: 8rpx;
+  color: #6b7280;
+  font-weight: 700;
+  line-height: 74rpx;
+  text-align: center;
+}
+
+.type-option.active {
+  background: #fff;
+  color: #172033;
+  box-shadow: 0 4rpx 14rpx rgba(15, 23, 42, 0.08);
+}
+
+.type-option.active.expense {
+  color: #dc2626;
+}
+
+.type-option.active.income {
+  color: #047857;
+}
+
+.field {
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #eef1f5;
+}
+
+.field:last-child {
+  border-bottom: 0;
+}
+
+.label {
+  color: #6b7280;
+  font-size: 24rpx;
+  margin-bottom: 14rpx;
+}
+
+.amount-input-wrap {
+  display: flex;
+  align-items: center;
+  font-size: 54rpx;
+  font-weight: 800;
+}
+
+.amount-input {
+  flex: 1;
+  height: 82rpx;
+  margin-left: 16rpx;
+  font-size: 54rpx;
+  font-weight: 800;
+}
+
+.picker-value,
+.note-input {
+  min-height: 56rpx;
+  font-size: 32rpx;
+  line-height: 56rpx;
+}
+
+.submit {
+  margin-top: 32rpx;
+}

@@ -1,0 +1,64 @@
+<view class="page dashboard">
+  <view class="hero card">
+    <view class="between">
+      <view>
+        <view class="muted">{{monthLabel}}</view>
+        <view class="hero-balance">¥{{summary.balanceText}}</view>
+      </view>
+      <button class="add-shortcut" bindtap="goAdd">+</button>
+    </view>
+    <view class="summary-grid">
+      <view>
+        <view class="muted">收入</view>
+        <view class="summary-value amount-income">¥{{summary.incomeText}}</view>
+      </view>
+      <view>
+        <view class="muted">支出</view>
+        <view class="summary-value amount-expense">¥{{summary.expenseText}}</view>
+      </view>
+      <view>
+        <view class="muted">预算剩余</view>
+        <view class="summary-value">¥{{budget.leftText}}</view>
+      </view>
+    </view>
+    <view class="budget-track">
+      <view class="budget-progress" style="width: {{budget.percent}}%;"></view>
+    </view>
+    <view class="subtitle">本月预算 ¥{{budget.totalText}}，已使用 {{budget.percent}}%</view>
+  </view>
+
+  <view class="section card">
+    <view class="between">
+      <view class="title">最近记录</view>
+      <view class="link" bindtap="goRecords">全部</view>
+    </view>
+    <block wx:if="{{recentRecords.length}}">
+      <view class="record" wx:for="{{recentRecords}}" wx:key="id">
+        <view>
+          <view class="record-title">{{item.category}}</view>
+          <view class="subtitle">{{item.date}} {{item.note}}</view>
+        </view>
+        <view class="{{item.type === 'income' ? 'amount-income' : 'amount-expense'}}">
+          {{item.type === 'income' ? '+' : '-'}}¥{{item.amountText}}
+        </view>
+      </view>
+    </block>
+    <view wx:else class="empty">还没有账目，先记一笔</view>
+  </view>
+
+  <view class="section card">
+    <view class="title">支出排行</view>
+    <block wx:if="{{topCategories.length}}">
+      <view class="category-line" wx:for="{{topCategories}}" wx:key="name">
+        <view class="between">
+          <view>{{item.name}}</view>
+          <view>¥{{item.amountText}}</view>
+        </view>
+        <view class="bar">
+          <view class="bar-inner" style="width: {{item.percent}}%;"></view>
+        </view>
+      </view>
+    </block>
+    <view wx:else class="empty">本月暂无支出统计</view>
+  </view>
+</view>
