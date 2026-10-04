@@ -1,10 +1,13 @@
 const {
   getSettings,
+  getRecords,
+  saveRecords,
   getMonthKey,
   getMonthlyRecords,
   summarize,
   formatMoney
 } = require('../../utils/storage');
+const { syncRecords } = require('../../utils/cloud');
 
 Page({
   data: {
@@ -18,6 +21,7 @@ Page({
   onShow() {
     this.syncTabBar();
     this.loadStats();
+    this.syncCloudRecords();
   },
 
   syncTabBar() {
@@ -25,6 +29,13 @@ Page({
     if (tabBar && tabBar.syncSelected) {
       tabBar.syncSelected();
     }
+  },
+
+  syncCloudRecords() {
+    syncRecords(getRecords()).then((records) => {
+      saveRecords(records);
+      this.loadStats();
+    }).catch(() => {});
   },
 
   onMonthChange(event) {

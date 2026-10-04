@@ -1,10 +1,14 @@
 const {
   getMonthKey,
   getMonthlyRecords,
+  getRecords,
+  saveRecords,
+  getRecordById,
   deleteRecord,
   formatMoney,
   formatDateTime
 } = require('../../utils/storage');
+const { syncRecords, deleteRecordFromCloud } = require('../../utils/cloud');
 
 Page({
   data: {
@@ -17,6 +21,7 @@ Page({
   onShow() {
     this.syncTabBar();
     this.loadRecords();
+    this.syncCloudRecords();
   },
 
   syncTabBar() {
@@ -27,8 +32,18 @@ Page({
   },
 
   onPullDownRefresh() {
-    this.loadRecords();
-    wx.stopPullDownRefresh();
+    this.syncCloudRecords().then(() => {
+      wx.stopPullDownRefresh();
+    });
+  },
+
+  syncCloudRecords() {
+    return syncRecords(getRecords()).then((records) => {
+      saveRecords(records);
+      this.loadRecords();
+    }).catch(() => {
+      this.loadRecords();
+    });
   },
 
   onMonthChange(event) {
@@ -88,7 +103,11 @@ Page({
       confirmColor: '#9b1c1c',
       success: (result) => {
         if (result.confirm) {
+          const record = getRecordById(id);
           deleteRecord(id);
+          deleteRecordFromCloud(record).catch(() => {
+            wx.showToast({ title: '本地已删除，云端稍后同步', icon: 'none' });
+          });
           this.loadRecords();
         }
       }

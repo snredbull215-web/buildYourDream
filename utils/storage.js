@@ -55,6 +55,16 @@ function addRecord(record) {
   return next;
 }
 
+function updateRecord(record) {
+  saveRecords(getRecords().map((item) => {
+    return item.id === record.id ? Object.assign({}, item, record) : item;
+  }));
+}
+
+function getRecordById(id) {
+  return getRecords().find((item) => item.id === id);
+}
+
 function deleteRecord(id) {
   saveRecords(getRecords().filter((item) => item.id !== id));
 }
@@ -149,6 +159,8 @@ module.exports = {
   getRecords,
   saveRecords,
   addRecord,
+  updateRecord,
+  getRecordById,
   deleteRecord,
   clearRecords,
   getMonthKey,

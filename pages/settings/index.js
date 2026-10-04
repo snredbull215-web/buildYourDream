@@ -6,6 +6,12 @@ const {
   clearRecords,
   buildDemoRecords
 } = require('../../utils/storage');
+const {
+  saveSettingsToCloud,
+  fetchSettingsFromCloud,
+  syncRecords,
+  clearRecordsFromCloud
+} = require('../../utils/cloud');
 
 Page({
   data: {
@@ -14,6 +20,7 @@ Page({
 
   onShow() {
     this.syncTabBar();
+    this.syncCloudSettings();
     this.setData({
       monthlyBudget: `${getSettings().monthlyBudget || 0}`
     });
@@ -30,6 +37,17 @@ Page({
     this.setData({ monthlyBudget: event.detail.value });
   },
 
+  syncCloudSettings() {
+    fetchSettingsFromCloud().then((settings) => {
+      if (settings) {
+        saveSettings(settings);
+        this.setData({
+          monthlyBudget: `${getSettings().monthlyBudget || 0}`
+        });
+      }
+    }).catch(() => {});
+  },
+
   saveBudget() {
     const amount = Number(this.data.monthlyBudget);
     if (amount < 0 || Number.isNaN(amount)) {
@@ -38,6 +56,9 @@ Page({
     }
 
     saveSettings({ monthlyBudget: Math.round(amount * 100) / 100 });
+    saveSettingsToCloud(getSettings()).catch(() => {
+      wx.showToast({ title: '本地已保存，云端稍后同步', icon: 'none' });
+    });
     wx.showToast({ title: '已保存', icon: 'success' });
   },
 
@@ -62,7 +83,9 @@ Page({
       content: '会追加几条本月示例账目，是否继续？',
       success: (result) => {
         if (result.confirm) {
-          saveRecords(buildDemoRecords().concat(getRecords()));
+          const records = buildDemoRecords().concat(getRecords());
+          saveRecords(records);
+          syncRecords(records).then(saveRecords).catch(() => {});
           wx.showToast({ title: '已导入', icon: 'success' });
         }
       }
@@ -77,6 +100,9 @@ Page({
       success: (result) => {
         if (result.confirm) {
           clearRecords();
+          clearRecordsFromCloud().catch(() => {
+            wx.showToast({ title: '本地已清空，云端稍后同步', icon: 'none' });
+          });
           wx.showToast({ title: '已清空', icon: 'success' });
         }
       }

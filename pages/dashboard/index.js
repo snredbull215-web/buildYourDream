@@ -1,6 +1,7 @@
 const {
   getSettings,
   getRecords,
+  saveRecords,
   getDayKey,
   getMonthKey,
   getYearKey,
@@ -8,6 +9,7 @@ const {
   formatMoney,
   formatDateTime
 } = require('../../utils/storage');
+const { syncRecords } = require('../../utils/cloud');
 
 Page({
   data: {
@@ -22,6 +24,7 @@ Page({
   onShow() {
     this.syncTabBar();
     this.loadData();
+    this.syncCloudRecords();
   },
 
   syncTabBar() {
@@ -29,6 +32,13 @@ Page({
     if (tabBar && tabBar.syncSelected) {
       tabBar.syncSelected();
     }
+  },
+
+  syncCloudRecords() {
+    syncRecords(getRecords()).then((records) => {
+      saveRecords(records);
+      this.loadData();
+    }).catch(() => {});
   },
 
   loadData() {

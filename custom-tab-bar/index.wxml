@@ -1,0 +1,21 @@
+<view class="tab-shell">
+  <view
+    wx:for="{{list}}"
+    wx:key="pagePath"
+    class="tab-item {{selected === index ? 'active' : ''}} {{item.center ? 'center' : ''}}"
+    data-index="{{index}}"
+    data-path="{{item.pagePath}}"
+    catchtap="switchTab"
+  >
+    <block wx:if="{{item.center}}">
+      <view class="center-button">
+        <view class="center-plus">+</view>
+      </view>
+      <view class="center-text">{{item.text}}</view>
+    </block>
+    <block wx:else>
+      <view class="tab-icon">{{item.icon}}</view>
+      <view class="tab-text">{{item.text}}</view>
+    </block>
+  </view>
+</view>

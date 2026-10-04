@@ -1,8 +1,10 @@
 const {
   getSettings,
   addRecord,
+  updateRecord,
   getMonthKey
 } = require('../../utils/storage');
+const { saveRecordToCloud } = require('../../utils/cloud');
 
 function todayText() {
   const now = new Date();
@@ -70,10 +72,13 @@ Page({
       return;
     }
 
-    addRecord(Object.assign({}, this.data.form, {
+    const record = addRecord(Object.assign({}, this.data.form, {
       amount: Math.round(amount * 100) / 100,
       note: this.data.form.note.trim()
     }));
+    saveRecordToCloud(record).then(updateRecord).catch(() => {
+      wx.showToast({ title: '已本地保存，云端稍后同步', icon: 'none' });
+    });
 
     wx.showToast({ title: '已保存', icon: 'success' });
     this.setData({
