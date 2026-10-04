@@ -7,24 +7,21 @@
     "pages/settings/index"
   ],
   "window": {
-    "navigationBarTitleText": "聚宝记账",
-    "navigationBarBackgroundColor": "#0f766e",
+    "navigationBarTitleText": "天天记账",
+    "navigationBarBackgroundColor": "#8a5a13",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#f6f7f9"
+    "backgroundColor": "#fbf6eb"
   },
   "tabBar": {
+    "custom": true,
     "color": "#6b7280",
-    "selectedColor": "#0f766e",
+    "selectedColor": "#b7791f",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/dashboard/index",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/add/index",
-        "text": "记一笔"
       },
       {
         "pagePath": "pages/records/index",

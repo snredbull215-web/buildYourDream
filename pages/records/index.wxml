@@ -25,19 +25,21 @@
 
   <view class="section card">
     <block wx:if="{{records.length}}">
-      <view class="record" wx:for="{{records}}" wx:key="id">
+      <view class="record" wx:for="{{records}}" wx:key="id" data-id="{{item.id}}" bindtap="showDetail">
         <view class="record-main">
           <view class="record-icon {{item.type}}">{{item.categoryShort}}</view>
           <view>
             <view class="record-title">{{item.category}}</view>
             <view class="subtitle">{{item.date}} {{item.note}}</view>
+            <view class="record-time">提交 {{item.createdAtText}}</view>
           </view>
         </view>
         <view class="record-side">
           <view class="{{item.type === 'income' ? 'amount-income' : 'amount-expense'}}">
             {{item.type === 'income' ? '+' : '-'}}¥{{item.amountText}}
           </view>
-          <view class="delete" data-id="{{item.id}}" bindtap="confirmDelete">删除</view>
+          <view class="detail-tip">查看明细</view>
+          <view class="delete" data-id="{{item.id}}" catchtap="confirmDelete">删除</view>
         </view>
       </view>
     </block>

@@ -27,11 +27,44 @@
   "compileType": "miniprogram",
   "libVersion": "latest",
   "appid": "wx69642e633765b251",
-  "projectname": "聚宝记账",
+  "projectname": "天天记账",
   "condition": {},
   "simulatorPluginLibVersion": {},
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "file",
+        "value": "assets/app-icon-jubao.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/app-icon-jubao-small.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/app-icon-tiantiangj.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/app-icon-tiantiangj-small.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/app-icon-dollar.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/home-hero-gold.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/home-hero-gold.jpg"
+      },
+      {
+        "type": "file",
+        "value": "assets/home-hero-dollar.png"
+      }
+    ],
     "include": []
   },
   "editorSetting": {}

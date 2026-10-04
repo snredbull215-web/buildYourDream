@@ -26,7 +26,7 @@
 }
 
 .tab.active {
-  background: #0f766e;
+  background: #b7791f;
   color: #fff;
   font-weight: 700;
 }
@@ -60,8 +60,8 @@
   height: 72rpx;
   margin-right: 20rpx;
   border-radius: 36rpx;
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #fff1d6;
+  color: #b7791f;
   font-size: 24rpx;
   font-weight: 800;
   line-height: 72rpx;
@@ -69,8 +69,8 @@
 }
 
 .record-icon.income {
-  background: #dcfce7;
-  color: #047857;
+  background: #fef3c7;
+  color: #92400e;
 }
 
 .record-title {
@@ -81,8 +81,15 @@
   text-align: right;
 }
 
+.record-time,
+.detail-tip {
+  margin-top: 6rpx;
+  color: #9a8053;
+  font-size: 22rpx;
+}
+
 .delete {
   margin-top: 8rpx;
-  color: #6b7280;
+  color: #9b1c1c;
   font-size: 24rpx;
 }

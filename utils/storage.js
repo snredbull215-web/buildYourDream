@@ -32,7 +32,11 @@ function saveSettings(settings) {
 
 function getRecords() {
   return (wx.getStorageSync(RECORDS_KEY) || []).sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
+    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+    if (dateDiff !== 0) {
+      return dateDiff;
+    }
+    return new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime();
   });
 }
 
@@ -63,6 +67,33 @@ function getMonthKey(date = new Date()) {
   const value = typeof date === 'string' ? new Date(date) : date;
   const month = `${value.getMonth() + 1}`.padStart(2, '0');
   return `${value.getFullYear()}-${month}`;
+}
+
+function getDayKey(date = new Date()) {
+  const value = typeof date === 'string' ? new Date(date) : date;
+  const day = `${value.getDate()}`.padStart(2, '0');
+  return `${getMonthKey(value)}-${day}`;
+}
+
+function getYearKey(date = new Date()) {
+  const value = typeof date === 'string' ? new Date(date) : date;
+  return `${value.getFullYear()}`;
+}
+
+function formatDateTime(value) {
+  if (!value) {
+    return '未知';
+  }
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return '未知';
+  }
+  const month = `${date.getMonth() + 1}`.padStart(2, '0');
+  const day = `${date.getDate()}`.padStart(2, '0');
+  const hour = `${date.getHours()}`.padStart(2, '0');
+  const minute = `${date.getMinutes()}`.padStart(2, '0');
+  const second = `${date.getSeconds()}`.padStart(2, '0');
+  return `${date.getFullYear()}-${month}-${day} ${hour}:${minute}:${second}`;
 }
 
 function formatMoney(value) {
@@ -121,6 +152,9 @@ module.exports = {
   deleteRecord,
   clearRecords,
   getMonthKey,
+  getDayKey,
+  getYearKey,
+  formatDateTime,
   getMonthlyRecords,
   summarize,
   formatMoney,

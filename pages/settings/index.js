@@ -13,9 +13,17 @@ Page({
   },
 
   onShow() {
+    this.syncTabBar();
     this.setData({
       monthlyBudget: `${getSettings().monthlyBudget || 0}`
     });
+  },
+
+  syncTabBar() {
+    const tabBar = this.getTabBar && this.getTabBar();
+    if (tabBar && tabBar.syncSelected) {
+      tabBar.syncSelected();
+    }
   },
 
   onBudgetInput(event) {
@@ -65,7 +73,7 @@ Page({
     wx.showModal({
       title: '清空账目',
       content: '所有本地账目都会被删除，且无法恢复。',
-      confirmColor: '#dc2626',
+      confirmColor: '#9b1c1c',
       success: (result) => {
         if (result.confirm) {
           clearRecords();

@@ -1,10 +1,39 @@
+.add-brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+  padding: 22rpx 26rpx;
+  border: 1rpx solid #e1c88d;
+  border-radius: 8rpx;
+  background: linear-gradient(135deg, #fff8e6, #f4d27d);
+}
+
+.add-logo {
+  width: 86rpx;
+  height: 86rpx;
+  margin-right: 20rpx;
+  border-radius: 20rpx;
+}
+
+.add-brand-title {
+  color: #4a2b08;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.add-brand-subtitle {
+  margin-top: 6rpx;
+  color: #8a5a13;
+  font-size: 24rpx;
+}
+
 .type-switch {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16rpx;
   padding: 8rpx;
   border-radius: 8rpx;
-  background: #f1f5f9;
+  background: #fff4da;
 }
 
 .type-option {
@@ -23,16 +52,16 @@
 }
 
 .type-option.active.expense {
-  color: #dc2626;
+  color: #b91c1c;
 }
 
 .type-option.active.income {
-  color: #047857;
+  color: #8a5a13;
 }
 
 .field {
   padding: 28rpx 0;
-  border-bottom: 1rpx solid #eef1f5;
+  border-bottom: 1rpx solid #f1e4ce;
 }
 
 .field:last-child {

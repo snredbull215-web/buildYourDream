@@ -30,7 +30,7 @@
   width: 132rpx;
   height: 132rpx;
   margin-right: 28rpx;
-  border: 14rpx solid #0f766e;
+  border: 14rpx solid #b7791f;
   border-radius: 66rpx;
 }
 
@@ -52,19 +52,19 @@
   margin-top: 12rpx;
   overflow: hidden;
   border-radius: 8rpx;
-  background: #fee2e2;
+  background: #f4e3c0;
 }
 
 .bar.income {
-  background: #dcfce7;
+  background: #fef3c7;
 }
 
 .bar-inner {
   height: 100%;
   border-radius: 8rpx;
-  background: #dc2626;
+  background: #b91c1c;
 }
 
 .bar-inner.income {
-  background: #047857;
+  background: #b7791f;
 }

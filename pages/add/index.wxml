@@ -1,4 +1,12 @@
 <view class="page">
+  <view class="add-brand">
+    <image class="add-logo" src="/assets/app-icon-dollar-small.png" mode="aspectFill"></image>
+    <view>
+      <view class="add-brand-title">记一笔</view>
+      <view class="add-brand-subtitle">每一笔收支都清清楚楚</view>
+    </view>
+  </view>
+
   <view class="card">
     <view class="type-switch">
       <view class="type-option {{form.type === 'expense' ? 'active expense' : ''}}" data-type="expense" bindtap="changeType">支出</view>

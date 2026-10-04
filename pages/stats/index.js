@@ -16,7 +16,15 @@ Page({
   },
 
   onShow() {
+    this.syncTabBar();
     this.loadStats();
+  },
+
+  syncTabBar() {
+    const tabBar = this.getTabBar && this.getTabBar();
+    if (tabBar && tabBar.syncSelected) {
+      tabBar.syncSelected();
+    }
   },
 
   onMonthChange(event) {

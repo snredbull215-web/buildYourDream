@@ -83,5 +83,8 @@ Page({
         note: ''
       })
     });
+    setTimeout(() => {
+      wx.navigateBack({ delta: 1 });
+    }, 800);
   }
 });
